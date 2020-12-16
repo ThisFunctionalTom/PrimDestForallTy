@@ -1,0 +1,15 @@
+module App
+
+open Elmish
+open Elmish.React
+
+#if DEBUG
+open Elmish.Debug
+#endif
+
+Program.mkProgram Index.init Index.update Index.view
+|> Program.withReactSynchronous "elmish-app"
+#if DEBUG
+|> Program.withDebugger
+#endif
+|> Program.run
